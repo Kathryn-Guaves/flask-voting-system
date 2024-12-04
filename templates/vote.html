@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="align-center">{{ the_title }}</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} align-center">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="POST" action="{{ url_for('vote') }}" class="mt-2">
+  <div>
+    <label for="name"><i class="fas fa-user"></i> Voter's Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div>
+    <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="course"><i class="fas fa-graduation-cap"></i> Course:</label>
+    <input type="text" id="course" name="course" required>
+  </div>
+  <div>
+    <label for="date"><i class="fas fa-calendar"></i> Date:</label>
+    <input type="date" id="date" name="date" required>
+  </div>
+  <div>
+    <label for="candidate"><i class="fas fa-user-tie"></i> Select Candidate:</label>
+    <select id="candidate" name="candidate" required>
+      <option value="">Choose a candidate</option>
+      <option value="Candidate A">Candidate A</option>
+      <option value="Candidate B">Candidate B</option>
+      <option value="Candidate C">Candidate C</option>
+    </select>
+  </div>
+  <div class="align-center">
+    <input type="submit" value="Submit Vote">
+  </div>
+</form>
+{% endblock %}

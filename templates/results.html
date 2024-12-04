@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="align-center">{{ the_title }}</h1>
+
+<div class="results-container mt-2">
+    <div class="result-box">
+        <h2><i class="fas fa-poll"></i> Total Votes</h2>
+        <p class="big-number">{{ total_votes }}</p>
+    </div>
+
+    <div class="result-box">
+        <h2><i class="fas fa-user-tie"></i> Candidate Results</h2>
+        <ul>
+        {% for candidate, count in candidate_stats %}
+            <li><strong>{{ candidate }}:</strong> {{ count }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="result-box">
+        <h2><i class="fas fa-venus-mars"></i> Gender Statistics</h2>
+        <ul>
+        {% for gender, count in gender_stats %}
+            <li><strong>{{ gender }}:</strong> {{ count }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="result-box">
+        <h2><i class="fas fa-graduation-cap"></i> Course Statistics</h2>
+        <ul>
+        {% for course, count in course_stats %}
+            <li><strong>{{ course }}:</strong> {{ count }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="align-center mt-2">
+    <a href="{{ url_for('index') }}" class="btn"><i class="fas fa-home"></i> Back to Home</a>
+</div>
+{% endblock %}

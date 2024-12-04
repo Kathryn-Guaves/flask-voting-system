@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1 class="align-center">{{ the_title }}</h1>
+
+<div class="table-container mt-2">
+    <table class="voters-table">
+        <thead>
+            <tr>
+                <th>Voter's Name</th>
+                <th>Gender</th>
+                <th>Course</th>
+                <th>Date</th>
+                <th>Candidate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voter in voters %}
+            <tr>
+                <td>{{ voter.name }}</td>
+                <td>{{ voter.gender }}</td>
+                <td>{{ voter.course }}</td>
+                <td>{{ voter.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ voter.candidate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="align-center mt-2">
+    <a href="{{ url_for('index') }}" class="btn"><i class="fas fa-home"></i> Back to Home</a>
+</div>
+{% endblock %}

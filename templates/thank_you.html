@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ the_title }}</h1>
+
+<p>Thank you for your vote!</p>
+
+<p>Your vote is important for our Student Government.</p>
+
+<a href="{{ url_for('index') }}" class="btn">Back to Home Page</a>
+{% endblock %}

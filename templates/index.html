@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="hero">
+    <h1><i class="fas fa-university"></i> {{ the_title }}</h1>
+    <p>Vote for the future of our school!</p>
+</div>
+
+<div class="features">
+    <div class="feature-box">
+        <h2><i class="fas fa-vote-yea"></i> Vote Now</h2>
+        <p>Cast your vote for the Student Government candidates.</p>
+        <a href="{{ url_for('vote') }}" class="btn"><i class="fas fa-check-circle"></i> Vote</a>
+    </div>
+    <div class="feature-box">
+        <h2><i class="fas fa-chart-pie"></i> View Results</h2>
+        <p>Check the current voting results.</p>
+        <a href="{{ url_for('results') }}" class="btn"><i class="fas fa-eye"></i> View Results</a>
+    </div>
+    <div class="feature-box">
+        <h2><i class="fas fa-users"></i> Voters List</h2>
+        <p>See all registered voters and their information.</p>
+        <a href="{{ url_for('voters') }}" class="btn"><i class="fas fa-list"></i> View Voters</a>
+    </div>
+</div>
+{% endblock %}

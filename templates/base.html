@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ the_title }} - Student Government Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <nav>
+            <div class="container">
+                <h1 class="logo" style="color: var(--primary-color);">SG Voting System</h1>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('vote') }}">Vote</a></li>
+                    <li><a href="{{ url_for('results') }}">Results</a></li>
+                    <li><a href="{{ url_for('voters') }}">Voters List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main class="container content-wrap">
+            {% block body %}
+            {% endblock %}
+        </main>
+        <footer class="mt-2">
+            <div class="container align-center">
+                <p>&copy; 2023 Student Government Voting System</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
